@@ -3,7 +3,7 @@
 </p>
 
 <h1>Network Security Groups (NSGs) and Inspecting Traffic Between Azure Virtual Machines</h1>
-In this tutorial, we observe various network traffic to and from Azure Virtual Machines with Wireshark as well as experiment with Network Security Groups. <br />
+In this tutorial, we observe various network traffic to and from Azure Virtual Machines with Wireshark as well as experiment with Network Security Groups. 
 
 <h2>Environments and Technologies Used</h2>
 
@@ -53,7 +53,6 @@ Step 3: Create a Linux (Ubuntu) VM
 
 You should get a similar output below.
 ![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/34390e2c-9eab-43cf-8ff2-aed08e2e276a)
-<br />
 
 Exploring Network Analysis on a Windows 10 VM: Using Remote Desktop, Wireshark, and Observing ICMP Traffic steps:
 
@@ -79,7 +78,7 @@ Step 2: Install Wireshark on Windows 10 VM
 Step 3: Open Wireshark and Filter for ICMP Traffic
 
     Open Wireshark from the Start menu.
-     Select the network interface connected to the Azure virtual network.
+    Select the network interface connected to the Azure virtual network.
     Click on "Start" to begin capturing packets.
     In the Wireshark capture window, enter icmp in the display filter box and press Enter.
     This will filter and display only ICMP (ping) traffic.
@@ -139,37 +138,35 @@ Observe SSH Traffic in Wireshark:
 
     In the Wireshark capture window, observe the SSH traffic as you interact with the Ubuntu VM over SSH.
     You should see SSH packets (e.g., SSH handshake, data transfer) in the Wireshark capture.
-    To exit the SSH connection, type exit and press Enter in the PuTTY window or Command Prompt.
+    To exit the SSH connection, type exit and press Enter in the Command Prompt.
 
 ![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/02c84757-2d6e-403d-8433-1e9c01fd60aa)
     
 How to capture and analyze DHCP traffic using Wireshark
 
-Step 13: Filter for DHCP Traffic Only in Wireshark
+Step 1: Filter for DHCP Traffic Only in Wireshark
 
-        In the Wireshark capture window, enter dhcp in the display filter box and press Enter.
-        This will filter and display only DHCP traffic.
-        Launch Command Prompt or PowerShell with administrative privileges.
-        In the Command Prompt or PowerShell, execute the following command to renew the IP address from DHCP:
+    In the Wireshark capture window, enter dhcp in the display filter box and press Enter.
+    This will filter and display only DHCP traffic.
+    Launch Command Prompt or PowerShell with administrative privileges.
+    In the Command Prompt or PowerShell, execute the following command to renew the IP address from DHCP:
       
-        ipconfig /renew
+    ipconfig /renew
 
-        This command requests a new IP address lease from the DHCP server.
+    This command requests a new IP address lease from the DHCP server.
 
-        Switch back to the Wireshark capture window.
-        You should see DHCP traffic related to the IP address renewal process captured in Wireshark.
-        Look for DHCP Discover, Offer, Request, and Acknowledge messages exchanged between the Windows 10 VM and the DHCP server.
+    Switch back to the Wireshark capture window.
+    You should see DHCP traffic related to the IP address renewal process captured in Wireshark.
+    Look for DHCP Discover, Offer, Request, and Acknowledge messages exchanged between the Windows 10 VM and the DHCP server.
 
 Analysis and Observations:
 
-    DHCP Discover: The Windows 10 VM broadcasts a DHCP Discover message to discover available DHCP servers.
-    DHCP Offer: The DHCP server responds with a DHCP Offer, proposing an IP address lease.
     DHCP Request: The Windows 10 VM sends a DHCP Request to request the offered IP address.
     DHCP Acknowledge: The DHCP server sends a DHCP Acknowledge message to confirm the IP address lease renewal.
 
 ![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/10e6af74-106c-4bb9-a086-0296036cc8de)
 
-capturing and analyzing DNS (Domain Name System) traffic using Wireshark
+How to capture and analyze DNS (Domain Name System) traffic using Wireshark
 
 Step 15: Filter for DNS Traffic Only in Wireshark
 
