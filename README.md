@@ -22,8 +22,8 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 - Task 1. Creating a Resource Group and Deploying Windows 10 and Linux Ubuntu Server VMs 
 - Task 2. Exploring Network Analysis on a Windows 10 VM: Using Remote Desktop, Wireshark, and Observing ICMP Traffic
-- Task 3. Observe SSH Traffic
-- Task 4. Observe DHCP Traffic
+- Task 3. How to use Wireshark to capture and analyze SSH traffic
+- Task 4. How to capture and analyze DHCP traffic using Wireshark
 - Task 5. Observe DNS Traffic
 - Task 6. Observe RDP Traffic
 
@@ -143,36 +143,19 @@ Observe SSH Traffic in Wireshark:
 
 ![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/02c84757-2d6e-403d-8433-1e9c01fd60aa)
     
-how to capture and analyze DHCP traffic using Wireshark
+How to capture and analyze DHCP traffic using Wireshark
 
 Step 13: Filter for DHCP Traffic Only in Wireshark
 
-    Launch Wireshark:
-        Open Wireshark from the Start menu on your Windows 10 VM.
-
-    Start Capturing Packets:
-        Select the network interface connected to the Azure virtual network.
-        Click on "Start" to begin capturing packets.
-
-    Apply DHCP Filter:
         In the Wireshark capture window, enter dhcp in the display filter box and press Enter.
         This will filter and display only DHCP traffic.
-
-Step 14: Attempt to Renew IP Address of Windows 10 VM
-
-    Open Command Prompt or PowerShell on Windows 10 VM:
         Launch Command Prompt or PowerShell with administrative privileges.
-
-    Attempt to Renew IP Address:
         In the Command Prompt or PowerShell, execute the following command to renew the IP address from DHCP:
-
-        bash
-
+      
         ipconfig /renew
 
         This command requests a new IP address lease from the DHCP server.
 
-    Observe DHCP Traffic in Wireshark:
         Switch back to the Wireshark capture window.
         You should see DHCP traffic related to the IP address renewal process captured in Wireshark.
         Look for DHCP Discover, Offer, Request, and Acknowledge messages exchanged between the Windows 10 VM and the DHCP server.
@@ -184,6 +167,7 @@ Analysis and Observations:
     DHCP Request: The Windows 10 VM sends a DHCP Request to request the offered IP address.
     DHCP Acknowledge: The DHCP server sends a DHCP Acknowledge message to confirm the IP address lease renewal.
 
+![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/10e6af74-106c-4bb9-a086-0296036cc8de)
 
 capturing and analyzing DNS (Domain Name System) traffic using Wireshark
 
