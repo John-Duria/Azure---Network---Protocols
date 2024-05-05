@@ -114,52 +114,34 @@ Step 5: Test ICMP Traffic with Network Security Group (NSG) Rules
 
     Press Ctrl+C in the Command Prompt or PowerShell to stop the continuous ping.
 
-how to use Wireshark to capture and analyze SSH traffic
+How to use Wireshark to capture and analyze SSH traffic
 
 Step 1: Filter for SSH Traffic Only in Wireshark
 
-    Launch Wireshark:
-        Open Wireshark from the Start menu on your Windows 10 VM.
-
-    Start Capturing Packets:
-        Select the network interface connected to the Azure virtual network.
-        Click on "Start" to begin capturing packets.
-
-    Apply SSH Filter:
-        In the Wireshark capture window, enter ssh in the display filter box and press Enter.
-        This will filter and display only SSH traffic.
+    Open Wireshark from the Start menu on your Windows 10 VM.
+    Select the network interface connected to the Azure virtual network.
+    Click on "Start" to begin capturing packets.
+    In the Wireshark capture window, enter ssh in the display filter box and press Enter.
+    This will filter and display only SSH traffic.
 
 Step 2: SSH into Ubuntu VM from Windows 10 VM
 
-    Retrieve Ubuntu VM Private IP:
-        In the Azure Portal, go to your Ubuntu VM's overview.
-        Note down the "Private IP address" listed.
-
+    In the Azure Portal, go to your Ubuntu VM's overview.
+    Note down the "Private IP address" listed.
     Open Command Prompt or PowerShell on Windows 10 VM:
-        Use an SSH client such as PuTTY (download and install if not already installed).
-
-    SSH into Ubuntu VM:
-        In PuTTY or Command Prompt, initiate an SSH connection using the Ubuntu VM's private IP address:
-
-        bash
-
+    In Command Prompt, initiate an SSH connection using the Ubuntu VM's private IP address:
     ssh username@<Ubuntu_VM_Private_IP>
-
     Replace username with your Ubuntu VM's username and <Ubuntu_VM_Private_IP> with the private IP address.
-
-Enter Credentials and Commands:
-
     Enter your Ubuntu VM's password when prompted.
-    Once connected, type commands (e.g., whoami, pwd) into the SSH connection to execute on the Ubuntu VM.
+    Once connected, you should see the username and hostname of Ubuntu VM.
 
 Observe SSH Traffic in Wireshark:
 
     In the Wireshark capture window, observe the SSH traffic as you interact with the Ubuntu VM over SSH.
     You should see SSH packets (e.g., SSH handshake, data transfer) in the Wireshark capture.
-
-Exit the SSH Connection:
-
     To exit the SSH connection, type exit and press Enter in the PuTTY window or Command Prompt.
+
+![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/02c84757-2d6e-403d-8433-1e9c01fd60aa)
     
 how to capture and analyze DHCP traffic using Wireshark
 
