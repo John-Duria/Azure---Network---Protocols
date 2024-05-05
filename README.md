@@ -20,12 +20,12 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 <h2>Task</h2>
 
-- Step 1. Create resources (Windows 10 and Ubuntu Server) 
-- Step 2. Observe ICMP Traffic
-- Step 3. Observe SSH Traffic
-- Step 4. Observe DHCP Traffic
-- Step 5. Observe DNS Traffic
-- Step 6. Observe RDP Traffic
+- Task 1. Create resources (Windows 10 and Ubuntu Server) 
+- Task 2. Observe ICMP Traffic
+- Task 3. Observe SSH Traffic
+- Task 4. Observe DHCP Traffic
+- Task 5. Observe DNS Traffic
+- Task 6. Observe RDP Traffic
 
 <h2>Actions and Observations</h2>
 
@@ -137,18 +137,167 @@ Step 6: Test ICMP Traffic with Network Security Group (NSG) Rules
 
     Stop the Ping Activity:
         Press Ctrl+C in the Command Prompt or PowerShell to stop the continuous ping.
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
 
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+how to use Wireshark to capture and analyze SSH traffic
+
+Step 1: Filter for SSH Traffic Only in Wireshark
+
+    Launch Wireshark:
+        Open Wireshark from the Start menu on your Windows 10 VM.
+
+    Start Capturing Packets:
+        Select the network interface connected to the Azure virtual network.
+        Click on "Start" to begin capturing packets.
+
+    Apply SSH Filter:
+        In the Wireshark capture window, enter ssh in the display filter box and press Enter.
+        This will filter and display only SSH traffic.
+
+Step 2: SSH into Ubuntu VM from Windows 10 VM
+
+    Retrieve Ubuntu VM Private IP:
+        In the Azure Portal, go to your Ubuntu VM's overview.
+        Note down the "Private IP address" listed.
+
+    Open Command Prompt or PowerShell on Windows 10 VM:
+        Use an SSH client such as PuTTY (download and install if not already installed).
+
+    SSH into Ubuntu VM:
+        In PuTTY or Command Prompt, initiate an SSH connection using the Ubuntu VM's private IP address:
+
+        bash
+
+    ssh username@<Ubuntu_VM_Private_IP>
+
+    Replace username with your Ubuntu VM's username and <Ubuntu_VM_Private_IP> with the private IP address.
+
+Enter Credentials and Commands:
+
+    Enter your Ubuntu VM's password when prompted.
+    Once connected, type commands (e.g., whoami, pwd) into the SSH connection to execute on the Ubuntu VM.
+
+Observe SSH Traffic in Wireshark:
+
+    In the Wireshark capture window, observe the SSH traffic as you interact with the Ubuntu VM over SSH.
+    You should see SSH packets (e.g., SSH handshake, data transfer) in the Wireshark capture.
+
+Exit the SSH Connection:
+
+    To exit the SSH connection, type exit and press Enter in the PuTTY window or Command Prompt.
+    
+how to capture and analyze DHCP traffic using Wireshark
+
+Step 13: Filter for DHCP Traffic Only in Wireshark
+
+    Launch Wireshark:
+        Open Wireshark from the Start menu on your Windows 10 VM.
+
+    Start Capturing Packets:
+        Select the network interface connected to the Azure virtual network.
+        Click on "Start" to begin capturing packets.
+
+    Apply DHCP Filter:
+        In the Wireshark capture window, enter dhcp in the display filter box and press Enter.
+        This will filter and display only DHCP traffic.
+
+Step 14: Attempt to Renew IP Address of Windows 10 VM
+
+    Open Command Prompt or PowerShell on Windows 10 VM:
+        Launch Command Prompt or PowerShell with administrative privileges.
+
+    Attempt to Renew IP Address:
+        In the Command Prompt or PowerShell, execute the following command to renew the IP address from DHCP:
+
+        bash
+
+        ipconfig /renew
+
+        This command requests a new IP address lease from the DHCP server.
+
+    Observe DHCP Traffic in Wireshark:
+        Switch back to the Wireshark capture window.
+        You should see DHCP traffic related to the IP address renewal process captured in Wireshark.
+        Look for DHCP Discover, Offer, Request, and Acknowledge messages exchanged between the Windows 10 VM and the DHCP server.
+
+Analysis and Observations:
+
+    DHCP Discover: The Windows 10 VM broadcasts a DHCP Discover message to discover available DHCP servers.
+    DHCP Offer: The DHCP server responds with a DHCP Offer, proposing an IP address lease.
+    DHCP Request: The Windows 10 VM sends a DHCP Request to request the offered IP address.
+    DHCP Acknowledge: The DHCP server sends a DHCP Acknowledge message to confirm the IP address lease renewal.
+
+
+capturing and analyzing DNS (Domain Name System) traffic using Wireshark
+
+Step 15: Filter for DNS Traffic Only in Wireshark
+
+    Launch Wireshark:
+        Open Wireshark from the Start menu on your Windows 10 VM.
+
+    Start Capturing Packets:
+        Select the network interface connected to the Azure virtual network.
+        Click on "Start" to begin capturing packets.
+
+    Apply DNS Filter:
+        In the Wireshark capture window, enter dns in the display filter box and press Enter.
+        This will filter and display only DNS traffic.
+
+Step 16: Use nslookup to Resolve DNS Queries
+
+    Open Command Prompt on Windows 10 VM:
+        Launch Command Prompt with administrative privileges.
+
+    Perform DNS Queries with nslookup:
+        In the Command Prompt, execute the following commands to resolve the IP addresses of google.com and disney.com:
+
+        bash
+
+        nslookup google.com
+        nslookup disney.com
+
+        nslookup is a command-line tool used to query DNS servers and obtain DNS records, such as IP addresses associated with domain names.
+
+    Observe DNS Traffic in Wireshark:
+        Switch back to the Wireshark capture window.
+        You should see DNS query and response packets related to the nslookup commands captured in Wireshark.
+        Look for DNS queries for google.com and disney.com, as well as the corresponding DNS responses containing IP addresses.
+
+Analysis and Observations:
+
+    DNS Query (DNS Request): The Windows 10 VM sends DNS queries (A record requests) for google.com and disney.com to DNS servers.
+    DNS Response: DNS servers respond with DNS response packets containing IP addresses associated with google.com and disney.com.
+
+capturing and analyzing Remote Desktop Protocol (RDP) traffic using Wireshark
+
+Step 17: Filter for RDP Traffic (TCP Port 3389) in Wireshark
+
+    Launch Wireshark:
+        Open Wireshark from the Start menu on your Windows 10 VM.
+
+    Start Capturing Packets:
+        Select the network interface connected to the Azure virtual network.
+        Click on "Start" to begin capturing packets.
+
+    Apply RDP Filter:
+        In the Wireshark capture window, enter tcp.port == 3389 in the display filter box and press Enter.
+        This will filter and display only TCP traffic on port 3389, which is used by RDP.
+
+Step 18: Observe Continuous RDP Traffic and Analysis
+
+    Interpret RDP Traffic Behavior:
+        Notice that when filtering for RDP traffic (tcp.port == 3389), you will likely observe continuous packets being transmitted, even when no specific user activity is occurring within the RDP session.
+
+    Understanding RDP Behavior:
+        RDP (Remote Desktop Protocol) is designed to provide remote access and control of a computer over a network.
+        RDP sessions typically involve a constant stream of data between the client (local machine) and the server (remote machine) to maintain the remote desktop display, respond to user inputs, and transmit audio/video data (if enabled).
+
+    Reason for Continuous Traffic:
+        The non-stop traffic observed in RDP captures is attributed to the nature of the RDP protocol itself.
+        RDP operates by continuously transmitting updates of the remote desktop screen, mouse movements, keyboard inputs, and other interactive elements.
+        Even when there is no user activity (such as mouse clicks or keyboard typing), the RDP protocol remains active to maintain a live and responsive remote desktop experience.
+
+Analysis and Observations:
+
+    Continuous Stream of Data: RDP traffic appears as a constant stream of data due to the real-time nature of remote desktop interaction.
+    Protocol Behavior: RDP protocol is optimized to provide a responsive and interactive remote desktop experience, leading to continuous traffic flow between the client and server.
+    Difference from Activity-based Traffic: Unlike other protocols that show traffic only during specific user activities (e.g., HTTP requests in web browsing), RDP traffic is persistent and reflects the ongoing nature of remote desktop sessions.
