@@ -116,6 +116,7 @@ Step 5: Test ICMP Traffic with Network Security Group (NSG) Rules
     Press Ctrl+C in the Command Prompt or PowerShell to stop the continuous ping.
 
 Analysis and Observations:
+
 The ICMP analysis using Wireshark provided visibility into the network communication patterns and behaviors between the Windows 10 and Ubuntu VMs in an Azure environment. The observations helped validate connectivity, diagnose potential issues (such as blocked ICMP traffic), and verify the resolution of connectivity problems through network configuration adjustments.
 
 <h3>Task 3: How to use Wireshark to capture and analyze SSH traffic steps:</h3>
