@@ -231,7 +231,7 @@ Analysis and Observations:
     Protocol Behavior: RDP protocol is optimized to provide a responsive and interactive remote desktop 
     experience, leading to continuous traffic flow between the client and server.
     Difference from Activity-based Traffic: Unlike other protocols that show traffic only during specific 
-    user activities (e.g., HTTP requests in web browsing), RDP traffic is persistent and reflects the ongoing 
-    nature of remote desktop sessions.
+    user activities (e.g., HTTP requests in web browsing), RDP traffic is persistent and reflects the 
+    ongoing nature of remote desktop sessions.
 
 ![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/7f459042-c224-4b1c-8c80-21ae1adb830e)
