@@ -185,15 +185,18 @@ Step 2: Use nslookup to Resolve DNS Queries
 
     nslookup google.com
 
-    nslookup is a command-line tool used to query DNS servers and obtain DNS records, such as IP addresses associated with domain names.
+    nslookup is a command-line tool used to query DNS servers and obtain DNS records, 
+    such as IP addresses associated with domain names.
     Switch back to the Wireshark capture window.
     You should see DNS query and response packets related to the nslookup commands captured in Wireshark.
     Look for DNS queries for google.com as well as the corresponding DNS responses containing IP addresses.
 
 Analysis and Observations:
 
-    DNS Query (DNS Request): The Windows 10 VM sends DNS queries (A record requests) for google.com to DNS servers.
-    DNS Response: DNS servers respond with DNS response packets containing IP addresses associated with google.com.
+    DNS Query (DNS Request): The Windows 10 VM sends DNS queries (A record requests) 
+    for google.com to DNS servers.
+    DNS Response: DNS servers respond with DNS response packets containing IP addresses 
+    associated with google.com.
 
 ![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/df4e2827-fb6a-4095-a7c2-98b449afae47)
 
@@ -206,22 +209,29 @@ Step 1: Filter for RDP Traffic (TCP Port 3389) in Wireshark
 
 Step 18: Observe Continuous RDP Traffic and Analysis
 
-    Interpret RDP Traffic Behavior:
-        Notice that when filtering for RDP traffic (tcp.port == 3389), you will likely observe continuous packets being transmitted, even when no specific user activity is occurring within the RDP session.
+    Notice that when filtering for RDP traffic (tcp.port == 3389), you will likely observe continuous
+    packets being transmitted, even when no specific user activity is occurring within the RDP session.
 
-    Understanding RDP Behavior:
-        RDP (Remote Desktop Protocol) is designed to provide remote access and control of a computer over a network.
-        RDP sessions typically involve a constant stream of data between the client (local machine) and the server (remote machine) to maintain the remote desktop display, respond to user inputs, and transmit audio/video data (if enabled).
+    RDP (Remote Desktop Protocol) is designed to provide remote access and control of a computer over 
+    a network.
+    RDP sessions typically involve a constant stream of data between the client (local machine) and the 
+    server (remote machine) to maintain the remote desktop display, respond to user inputs, and transmit
+    audio/video data (if enabled).
 
-    Reason for Continuous Traffic:
-        The non-stop traffic observed in RDP captures is attributed to the nature of the RDP protocol itself.
-        RDP operates by continuously transmitting updates of the remote desktop screen, mouse movements, keyboard inputs, and other interactive elements.
-        Even when there is no user activity (such as mouse clicks or keyboard typing), the RDP protocol remains active to maintain a live and responsive remote desktop experience.
+    The non-stop traffic observed in RDP captures is attributed to the nature of the RDP protocol itself.
+    RDP operates by continuously transmitting updates of the remote desktop screen, mouse movements, 
+    keyboard inputs, and other interactive elements.
+    Even when there is no user activity (such as mouse clicks or keyboard typing), the RDP protocol 
+    remains active to maintain a live and responsive remote desktop experience.
 
 Analysis and Observations:
 
-    Continuous Stream of Data: RDP traffic appears as a constant stream of data due to the real-time nature of remote desktop interaction.
-    Protocol Behavior: RDP protocol is optimized to provide a responsive and interactive remote desktop experience, leading to continuous traffic flow between the client and server.
-    Difference from Activity-based Traffic: Unlike other protocols that show traffic only during specific user activities (e.g., HTTP requests in web browsing), RDP traffic is persistent and reflects the ongoing nature of remote desktop sessions.
+    Continuous Stream of Data: RDP traffic appears as a constant stream of data due to the real-time nature 
+    of remote desktop interaction.
+    Protocol Behavior: RDP protocol is optimized to provide a responsive and interactive remote desktop 
+    experience, leading to continuous traffic flow between the client and server.
+    Difference from Activity-based Traffic: Unlike other protocols that show traffic only during specific user 
+    activities (e.g., HTTP requests in web browsing), RDP traffic is persistent and reflects the ongoing nature 
+    of remote desktop sessions.
 
 ![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/7f459042-c224-4b1c-8c80-21ae1adb830e)
