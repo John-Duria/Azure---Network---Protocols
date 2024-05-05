@@ -20,8 +20,8 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 <h2>Task</h2>
 
-- Task 1. Create resources (Windows 10 and Ubuntu Server) 
-- Task 2. Observe ICMP Traffic
+- Task 1. Creating a Resource Group and Deploying Windows 10 and Linux Ubuntu Server VMs 
+- Task 2. Exploring Network Analysis on a Windows 10 VM: Using Remote Desktop, Wireshark, and Observing ICMP Traffic
 - Task 3. Observe SSH Traffic
 - Task 4. Observe DHCP Traffic
 - Task 5. Observe DNS Traffic
