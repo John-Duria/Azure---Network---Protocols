@@ -105,9 +105,11 @@ Step 5: Test ICMP Traffic with Network Security Group (NSG) Rules
 ![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/75720b34-8261-47cd-be86-2b85f95d903f)
 
     
-    Back in the Windows 10 VM, observe Wireshark and ping activity to the Ubuntu VM. ICMP packets should be dropped.
+    Back in the Windows 10 VM, observe Wireshark and ping activity to the Ubuntu VM. 
+        ICMP packets should be dropped.
     Enable the "Inbound ICMP" rule in the NSG for the Ubuntu VM.
-    Back in the Windows 10 VM, observe Wireshark and ping activity again. ICMP packets should now be received successfully.
+    Back in the Windows 10 VM, observe Wireshark and ping activity again. 
+        ICMP packets should now be received successfully.
 
 ![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/fb004662-2cff-4f53-97a7-a6f86b2abdc0)
 
@@ -157,12 +159,14 @@ Step 1: Filter for DHCP Traffic Only in Wireshark
 
     Switch back to the Wireshark capture window.
     You should see DHCP traffic related to the IP address renewal process captured in Wireshark.
-    Look for DHCP Discover, Offer, Request, and Acknowledge messages exchanged between the Windows 10 VM and the DHCP server.
+    Look for DHCP Discover, Offer, Request, and Acknowledge messages exchanged between the 
+    Windows 10 VM and the DHCP server.
 
 Analysis and Observations:
 
     DHCP Request: The Windows 10 VM sends a DHCP Request to request the offered IP address.
-    DHCP Acknowledge: The DHCP server sends a DHCP Acknowledge message to confirm the IP address lease renewal.
+    DHCP Acknowledge: The DHCP server sends a DHCP Acknowledge message to confirm the 
+    IP address lease renewal.
 
 ![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/10e6af74-106c-4bb9-a086-0296036cc8de)
 
