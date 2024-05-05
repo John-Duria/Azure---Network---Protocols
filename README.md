@@ -29,7 +29,7 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 <h2>Actions and Observations</h2>
 
-Creating a Resource Group and Deploying Windows 10 and Ubuntu Linux VMs steps:
+Creating a Resource Group and Deploying Windows 10 and Linux Ubuntu Server VMs steps:
 
 Step 1: Create a Resource Group using the step-by-step tutorial on how to use Microsoft Azure to create a Resource Group on my repository.
 
@@ -50,6 +50,7 @@ Step 3: Create a Linux (Ubuntu) VM
     Use the same resource group (MyResourceGroup).
     This time, select "Use existing" for the Virtual Network and Subnet.
     Complete the configuration and deploy the Ubuntu VM.
+
 You should get a similar output below.
 ![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/34390e2c-9eab-43cf-8ff2-aed08e2e276a)
 <br />
