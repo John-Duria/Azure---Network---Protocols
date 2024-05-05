@@ -20,12 +20,12 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 <h2>Task</h2>
 
-- Task 1. Creating a Resource Group and Deploying Windows 10 and Linux Ubuntu Server VMs 
-- Task 2. Exploring Network Analysis on a Windows 10 VM: Using Remote Desktop, Wireshark, and Observing ICMP Traffic
-- Task 3. How to use Wireshark to capture and analyze SSH traffic
-- Task 4. How to capture and analyze DHCP traffic using Wireshark
-- Task 5. Observe DNS Traffic
-- Task 6. Observe RDP Traffic
+- Task 1. Creating a Resource Group and Deploying Windows 10 and Linux Ubuntu Server VMs.
+- Task 2. Exploring Network Analysis on a Windows 10 VM: Using Remote Desktop, Wireshark, and Observing ICMP Traffic.
+- Task 3. How to use Wireshark to capture and analyze SSH traffic.
+- Task 4. How to capture and analyze DHCP traffic using Wireshark.
+- Task 5. How to capture and analyze DNS (Domain Name System) traffic using Wireshark.
+- Task 6. How to capture and analyze Remote Desktop Protocol (RDP) traffic using Wireshark.
 
 <h2>Actions and Observations</h2>
 
@@ -115,7 +115,7 @@ Step 5: Test ICMP Traffic with Network Security Group (NSG) Rules
 
     Press Ctrl+C in the Command Prompt or PowerShell to stop the continuous ping.
 
-How to use Wireshark to capture and analyze SSH traffic
+How to use Wireshark to capture and analyze SSH traffic steps:
 
 Step 1: Filter for SSH Traffic Only in Wireshark
 
@@ -144,7 +144,7 @@ Observe SSH Traffic in Wireshark:
 
 ![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/02c84757-2d6e-403d-8433-1e9c01fd60aa)
     
-How to capture and analyze DHCP traffic using Wireshark
+How to capture and analyze DHCP traffic using Wireshark steps:
 
 Step 1: Filter for DHCP Traffic Only in Wireshark
 
@@ -170,60 +170,39 @@ Analysis and Observations:
 
 ![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/10e6af74-106c-4bb9-a086-0296036cc8de)
 
-How to capture and analyze DNS (Domain Name System) traffic using Wireshark
+How to capture and analyze DNS (Domain Name System) traffic using Wireshark steps:
 
-Step 15: Filter for DNS Traffic Only in Wireshark
+Step 1: Filter for DNS Traffic Only in Wireshark
 
-    Launch Wireshark:
-        Open Wireshark from the Start menu on your Windows 10 VM.
+    In the Wireshark capture window, enter dns in the display filter box and press Enter.
+    This will filter and display only DNS traffic.
 
-    Start Capturing Packets:
-        Select the network interface connected to the Azure virtual network.
-        Click on "Start" to begin capturing packets.
-
-    Apply DNS Filter:
-        In the Wireshark capture window, enter dns in the display filter box and press Enter.
-        This will filter and display only DNS traffic.
-
-Step 16: Use nslookup to Resolve DNS Queries
+Step 2: Use nslookup to Resolve DNS Queries
 
     Open Command Prompt on Windows 10 VM:
-        Launch Command Prompt with administrative privileges.
+    Launch Command Prompt with administrative privileges.
+    In the Command Prompt, execute the following commands to resolve the IP addresses of google.com
 
-    Perform DNS Queries with nslookup:
-        In the Command Prompt, execute the following commands to resolve the IP addresses of google.com and disney.com:
+    nslookup google.com
 
-        bash
-
-        nslookup google.com
-        nslookup disney.com
-
-        nslookup is a command-line tool used to query DNS servers and obtain DNS records, such as IP addresses associated with domain names.
-
-    Observe DNS Traffic in Wireshark:
-        Switch back to the Wireshark capture window.
-        You should see DNS query and response packets related to the nslookup commands captured in Wireshark.
-        Look for DNS queries for google.com and disney.com, as well as the corresponding DNS responses containing IP addresses.
+    nslookup is a command-line tool used to query DNS servers and obtain DNS records, such as IP addresses associated with domain names.
+    Switch back to the Wireshark capture window.
+    You should see DNS query and response packets related to the nslookup commands captured in Wireshark.
+    Look for DNS queries for google.com as well as the corresponding DNS responses containing IP addresses.
 
 Analysis and Observations:
 
-    DNS Query (DNS Request): The Windows 10 VM sends DNS queries (A record requests) for google.com and disney.com to DNS servers.
-    DNS Response: DNS servers respond with DNS response packets containing IP addresses associated with google.com and disney.com.
+    DNS Query (DNS Request): The Windows 10 VM sends DNS queries (A record requests) for google.com to DNS servers.
+    DNS Response: DNS servers respond with DNS response packets containing IP addresses associated with google.com.
 
-capturing and analyzing Remote Desktop Protocol (RDP) traffic using Wireshark
+![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/df4e2827-fb6a-4095-a7c2-98b449afae47)
 
-Step 17: Filter for RDP Traffic (TCP Port 3389) in Wireshark
+How to capture and analyze Remote Desktop Protocol (RDP) traffic using Wireshark steps:
 
-    Launch Wireshark:
-        Open Wireshark from the Start menu on your Windows 10 VM.
+Step 1: Filter for RDP Traffic (TCP Port 3389) in Wireshark
 
-    Start Capturing Packets:
-        Select the network interface connected to the Azure virtual network.
-        Click on "Start" to begin capturing packets.
-
-    Apply RDP Filter:
-        In the Wireshark capture window, enter tcp.port == 3389 in the display filter box and press Enter.
-        This will filter and display only TCP traffic on port 3389, which is used by RDP.
+    In the Wireshark capture window, enter tcp.port == 3389 in the display filter box and press Enter.
+    This will filter and display only TCP traffic on port 3389, which is used by RDP.
 
 Step 18: Observe Continuous RDP Traffic and Analysis
 
@@ -244,3 +223,5 @@ Analysis and Observations:
     Continuous Stream of Data: RDP traffic appears as a constant stream of data due to the real-time nature of remote desktop interaction.
     Protocol Behavior: RDP protocol is optimized to provide a responsive and interactive remote desktop experience, leading to continuous traffic flow between the client and server.
     Difference from Activity-based Traffic: Unlike other protocols that show traffic only during specific user activities (e.g., HTTP requests in web browsing), RDP traffic is persistent and reflects the ongoing nature of remote desktop sessions.
+
+![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/7f459042-c224-4b1c-8c80-21ae1adb830e)
