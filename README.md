@@ -59,85 +59,60 @@ Exploring Network Analysis on a Windows 10 VM: Using Remote Desktop, Wireshark, 
 
 Step 1: Use Remote Desktop to Connect to Your Windows 10 VM
 
-    Retrieve Windows VM Public IP:
-        In the Azure Portal, go to your Windows 10 VM's overview.
-        Note down the "Public IP address" listed.
-
-    Connect via Remote Desktop:
-        Open Remote Desktop Connection on your local machine.
-        Enter the Windows VM's public IP address.
-        Click "Connect" and enter your VM credentials to establish the remote desktop session.
+    In the Azure Portal, go to your Windows 10 VM's overview.
+    Note down the "Public IP address" listed.
+    Open Remote Desktop Connection on your local machine.
+    Enter the Windows VM's public IP address.
+    Click "Connect" and enter your VM credentials to establish the remote desktop session.
+    
+![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/5f7b7575-585c-4e8d-8e17-793e8cd4aade)
 
 Step 2: Install Wireshark on Windows 10 VM
 
-    Download Wireshark:
-        Inside the Windows 10 VM, open a web browser.
-        Go to the Wireshark download page.
-        Download the installer suitable for your Windows version (64-bit recommended).
-
-    Install Wireshark:
-        Run the downloaded Wireshark installer.
-        Follow the installation prompts to complete the setup.
-        Make sure to select the option to install WinPcap or Npcap (required for packet capture).
+    Inside the Windows 10 VM, open a web browser.
+    Go to the Wireshark download page.
+    Download the installer suitable for your Windows version (64-bit recommended).
+    Run the downloaded Wireshark installer.
+    Follow the installation prompts to complete the setup.
+    Make sure to select the option to install WinPcap or Npcap (required for packet capture).
 
 Step 3: Open Wireshark and Filter for ICMP Traffic
 
-    Launch Wireshark:
-        Open Wireshark from the Start menu.
+    Open Wireshark from the Start menu.
+     Select the network interface connected to the Azure virtual network.
+    Click on "Start" to begin capturing packets.
+    In the Wireshark capture window, enter icmp in the display filter box and press Enter.
+    This will filter and display only ICMP (ping) traffic.
 
-    Start Capturing Packets:
-        Select the network interface connected to the Azure virtual network.
-        Click on "Start" to begin capturing packets.
-
-    Apply ICMP Filter:
-        In the Wireshark capture window, enter icmp in the display filter box and press Enter.
-        This will filter and display only ICMP (ping) traffic.
+![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/009c3306-3cff-474f-b507-e82b9b02368c)
 
 Step 4: Ping the Ubuntu VM from Windows 10 VM
 
-    Retrieve Ubuntu VM Private IP:
-        In the Azure Portal, go to your Ubuntu VM's overview.
-        Note down the "Private IP address" listed.
+    
+    In the Azure Portal, go to your Ubuntu VM's overview.
+    Note down the "Private IP address" listed.
+    Open Command Prompt or PowerShell on the Windows 10 VM.
+    Use the command:ping <Ubuntu_VM_Private_IP>
+    Observe the ICMP ping requests and replies in Wireshark as shown above.
+        
+![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/2051ba85-e803-4e1a-9ef4-7be1a16aa26a)
 
-    Ping the Ubuntu VM:
-        Open Command Prompt or PowerShell on the Windows 10 VM.
-        Use the command:
+Step 5: Test ICMP Traffic with Network Security Group (NSG) Rules
 
-        bash
+    In the Azure Portal, navigate to your Ubuntu VM's networking settings.
+    Open the associated "Network Security Group" (NSG).
+    Disable the "Inbound ICMP" rule.
+        
+![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/75720b34-8261-47cd-be86-2b85f95d903f)
 
-        ping <Ubuntu_VM_Private_IP>
+    
+    Back in the Windows 10 VM, observe Wireshark and ping activity to the Ubuntu VM. ICMP packets should be dropped.
+    Enable the "Inbound ICMP" rule in the NSG for the Ubuntu VM.
+    Back in the Windows 10 VM, observe Wireshark and ping activity again. ICMP packets should now be received successfully.
 
-        Observe the ICMP ping requests and replies in Wireshark.
+![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/fb004662-2cff-4f53-97a7-a6f86b2abdc0)
 
-Step 5: Ping a Public Website from Windows 10 VM
-
-    Ping a Public Website:
-        In the Command Prompt or PowerShell of the Windows 10 VM, execute:
-
-        bash
-
-        ping www.google.com
-
-        Observe the outgoing ICMP traffic to Google in Wireshark.
-
-Step 6: Test ICMP Traffic with Network Security Group (NSG) Rules
-
-    Disable Incoming ICMP Traffic to Ubuntu VM:
-        In the Azure Portal, navigate to your Ubuntu VM's networking settings.
-        Open the associated "Network Security Group" (NSG).
-        Disable the "Inbound ICMP" rule.
-
-    Observe ICMP Traffic and Ping Activity:
-        Back in the Windows 10 VM, observe Wireshark and ping activity to the Ubuntu VM. ICMP packets should be dropped.
-
-    Re-enable Incoming ICMP Traffic:
-        Enable the "Inbound ICMP" rule in the NSG for the Ubuntu VM.
-
-    Observe ICMP Traffic and Ping Activity (Restored):
-        Back in the Windows 10 VM, observe Wireshark and ping activity again. ICMP packets should now be received successfully.
-
-    Stop the Ping Activity:
-        Press Ctrl+C in the Command Prompt or PowerShell to stop the continuous ping.
+    Press Ctrl+C in the Command Prompt or PowerShell to stop the continuous ping.
 
 how to use Wireshark to capture and analyze SSH traffic
 
