@@ -29,7 +29,7 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 <h2>Actions and Observations</h2>
 
-Creating a Resource Group and Deploying Windows 10 and Linux Ubuntu Server VMs steps:
+Task 1: Creating a Resource Group and Deploying Windows 10 and Linux Ubuntu Server VMs steps:
 
 Step 1: Create a Resource Group using the step-by-step tutorial on how to use Microsoft Azure to create a Resource Group on my repository.
 
@@ -54,7 +54,7 @@ Step 3: Create a Linux (Ubuntu) VM
 You should get a similar output below.
 ![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/34390e2c-9eab-43cf-8ff2-aed08e2e276a)
 
-Exploring Network Analysis on a Windows 10 VM: Using Remote Desktop, Wireshark, and Observing ICMP Traffic steps:
+Task 2: Exploring Network Analysis on a Windows 10 VM: Using Remote Desktop, Wireshark, and Observing ICMP Traffic steps:
 
 Step 1: Use Remote Desktop to Connect to Your Windows 10 VM
 
@@ -115,7 +115,7 @@ Step 5: Test ICMP Traffic with Network Security Group (NSG) Rules
 
     Press Ctrl+C in the Command Prompt or PowerShell to stop the continuous ping.
 
-How to use Wireshark to capture and analyze SSH traffic steps:
+Task 3: How to use Wireshark to capture and analyze SSH traffic steps:
 
 Step 1: Filter for SSH Traffic Only in Wireshark
 
@@ -144,7 +144,7 @@ Observe SSH Traffic in Wireshark:
 
 ![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/02c84757-2d6e-403d-8433-1e9c01fd60aa)
     
-How to capture and analyze DHCP traffic using Wireshark steps:
+Task 4: How to capture and analyze DHCP traffic using Wireshark steps:
 
 Step 1: Filter for DHCP Traffic Only in Wireshark
 
@@ -170,7 +170,7 @@ Analysis and Observations:
 
 ![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/10e6af74-106c-4bb9-a086-0296036cc8de)
 
-How to capture and analyze DNS (Domain Name System) traffic using Wireshark steps:
+Task 5: How to capture and analyze DNS (Domain Name System) traffic using Wireshark steps:
 
 Step 1: Filter for DNS Traffic Only in Wireshark
 
@@ -200,7 +200,7 @@ Analysis and Observations:
 
 ![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/df4e2827-fb6a-4095-a7c2-98b449afae47)
 
-How to capture and analyze Remote Desktop Protocol (RDP) traffic using Wireshark steps:
+Task 6: How to capture and analyze Remote Desktop Protocol (RDP) traffic using Wireshark steps:
 
 Step 1: Filter for RDP Traffic (TCP Port 3389) in Wireshark
 
