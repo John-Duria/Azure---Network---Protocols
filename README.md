@@ -32,8 +32,9 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 ![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/34390e2c-9eab-43cf-8ff2-aed08e2e276a)
 
 <p>
-I created two Virtual Machines (Windows 10 and Linux Ubuntu Server) 
+Setting up an Azure virtual machines involves the following steps:
 </p>
+Step 1: Create a Resource Group using the step-by-step tutorial on how to use Microsoft Azure to create a Resource Group on my repository.
 <br />
 
 <p>
