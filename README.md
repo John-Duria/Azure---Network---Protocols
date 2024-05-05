@@ -18,7 +18,7 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 - Windows 10 (21H2)
 - Ubuntu Server 20.04
 
-<h2>High-Level Steps</h2>
+<h2>Task</h2>
 
 - Step 1. Create resources (Windows 10 and Ubuntu Server) 
 - Step 2. Observe ICMP Traffic
@@ -55,7 +55,8 @@ You should get a similar output below.
 <br />
 
 Exploring Network Analysis on a Windows 10 VM: Using Remote Desktop, Wireshark, and Observing ICMP Traffic steps:
-Step 5: Use Remote Desktop to Connect to Your Windows 10 VM
+
+Step 1: Use Remote Desktop to Connect to Your Windows 10 VM
 
     Retrieve Windows VM Public IP:
         In the Azure Portal, go to your Windows 10 VM's overview.
@@ -66,7 +67,7 @@ Step 5: Use Remote Desktop to Connect to Your Windows 10 VM
         Enter the Windows VM's public IP address.
         Click "Connect" and enter your VM credentials to establish the remote desktop session.
 
-Step 6: Install Wireshark on Windows 10 VM
+Step 2: Install Wireshark on Windows 10 VM
 
     Download Wireshark:
         Inside the Windows 10 VM, open a web browser.
@@ -78,7 +79,7 @@ Step 6: Install Wireshark on Windows 10 VM
         Follow the installation prompts to complete the setup.
         Make sure to select the option to install WinPcap or Npcap (required for packet capture).
 
-Step 7: Open Wireshark and Filter for ICMP Traffic
+Step 3: Open Wireshark and Filter for ICMP Traffic
 
     Launch Wireshark:
         Open Wireshark from the Start menu.
@@ -91,7 +92,7 @@ Step 7: Open Wireshark and Filter for ICMP Traffic
         In the Wireshark capture window, enter icmp in the display filter box and press Enter.
         This will filter and display only ICMP (ping) traffic.
 
-Step 8: Ping the Ubuntu VM from Windows 10 VM
+Step 4: Ping the Ubuntu VM from Windows 10 VM
 
     Retrieve Ubuntu VM Private IP:
         In the Azure Portal, go to your Ubuntu VM's overview.
@@ -107,7 +108,7 @@ Step 8: Ping the Ubuntu VM from Windows 10 VM
 
         Observe the ICMP ping requests and replies in Wireshark.
 
-Step 9: Ping a Public Website from Windows 10 VM
+Step 5: Ping a Public Website from Windows 10 VM
 
     Ping a Public Website:
         In the Command Prompt or PowerShell of the Windows 10 VM, execute:
@@ -118,7 +119,7 @@ Step 9: Ping a Public Website from Windows 10 VM
 
         Observe the outgoing ICMP traffic to Google in Wireshark.
 
-Step 10: Test ICMP Traffic with Network Security Group (NSG) Rules
+Step 6: Test ICMP Traffic with Network Security Group (NSG) Rules
 
     Disable Incoming ICMP Traffic to Ubuntu VM:
         In the Azure Portal, navigate to your Ubuntu VM's networking settings.
