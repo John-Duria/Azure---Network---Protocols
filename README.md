@@ -31,7 +31,7 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 <h3>Task 1: Creating a Resource Group and Deploying Windows 10 and Linux Ubuntu Server VMs steps:</h3>
 
-Step 1: Create a Resource Group using the step-by-step tutorial on how to use Microsoft Azure to create a Resource Group on my repository.
+Step 1: Create a Resource Group using the step-by-step tutorial on [Creating Resource Group within Azure](https://github.com/John-Duria/Azure---Resource-Group) on my repository.
 
 Step 2: Create a Windows 10 Virtual Machine (VM)
 
