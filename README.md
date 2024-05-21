@@ -38,21 +38,22 @@ Step 2: Create a Windows 10 Virtual Machine (VM)
     In the Azure Portal, search for and select "Virtual machines".
     Click "+ Create" to create a new virtual machine.
     Fill in the required details (e.g., VM name, region, image, size).
-    Under "Resource group", select the resource group created in Step 1 (MyResourceGroup).
+    Under "Resource group", select the resource group created in Step 1.
     Choose "Create new" for the Virtual Network and Subnet.
     Follow the prompts to complete the VM configuration.
     Click "Review + create" and then "Create" to deploy the VM.
 
+![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/bedc83aa-c92d-4a29-bfff-882ad8745839)
+
 Step 3: Create a Linux (Ubuntu) VM
 
-    Repeat Steps 2-4 from the Windows VM creation process.
+    Repeat Steps 2 from the Windows VM creation process.
     Specify a different VM name, OS disk type, and select Ubuntu Server as the image.
-    Use the same resource group (MyResourceGroup).
+    Use the same resource group.
     This time, select "Use existing" for the Virtual Network and Subnet.
     Complete the configuration and deploy the Ubuntu VM.
 
-You should get a similar output below.
-![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/34390e2c-9eab-43cf-8ff2-aed08e2e276a)
+![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/60834cf6-e95b-4901-aa84-536d3e01ff82)
 
 <h3>Task 2: Exploring Network Analysis on a Windows 10 VM: Using Remote Desktop, Wireshark, and Observing ICMP Traffic steps:</h3>
 
@@ -64,7 +65,7 @@ Step 1: Use Remote Desktop to Connect to Your Windows 10 VM
     Enter the Windows VM's public IP address.
     Click "Connect" and enter your VM credentials to establish the remote desktop session.
     
-![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/5f7b7575-585c-4e8d-8e17-793e8cd4aade)
+![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/d007f3ed-a43b-444d-9751-c0fde346d47d)
 
 Step 2: Install Wireshark on Windows 10 VM
 
@@ -75,6 +76,8 @@ Step 2: Install Wireshark on Windows 10 VM
     Follow the installation prompts to complete the setup.
     Make sure to select the option to install WinPcap or Npcap (required for packet capture).
 
+![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/271cad16-a023-41b4-8c89-e6b363723106)
+
 Step 3: Open Wireshark and Filter for ICMP Traffic
 
     Open Wireshark from the Start menu.
@@ -83,18 +86,19 @@ Step 3: Open Wireshark and Filter for ICMP Traffic
     In the Wireshark capture window, enter icmp in the display filter box and press Enter.
     This will filter and display only ICMP (ping) traffic.
 
-![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/009c3306-3cff-474f-b507-e82b9b02368c)
+![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/d61f9d15-26b0-4552-9999-f8dba348ac9e)
 
-Step 4: Ping the Ubuntu VM from Windows 10 VM
+Step 4: Retrieve Private IP Address and Ping the Ubuntu VM from Windows 10 VM
 
-    
     In the Azure Portal, go to your Ubuntu VM's overview.
     Note down the "Private IP address" listed.
     Open Command Prompt or PowerShell on the Windows 10 VM.
     Use the command:ping <Ubuntu_VM_Private_IP>
     Observe the ICMP ping requests and replies in Wireshark as shown above.
         
-![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/2051ba85-e803-4e1a-9ef4-7be1a16aa26a)
+![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/69831d2d-29c7-4708-b59b-d53a30657d45)
+
+![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/74ab3db0-8fbe-4df1-b703-deedd3896a77)
 
 Step 5: Test ICMP Traffic with Network Security Group (NSG) Rules
 
@@ -102,18 +106,30 @@ Step 5: Test ICMP Traffic with Network Security Group (NSG) Rules
     Open the associated "Network Security Group" (NSG).
     Disable the "Inbound ICMP" rule.
         
-![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/75720b34-8261-47cd-be86-2b85f95d903f)
+![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/7abbf841-1cab-4b28-8ebd-d6c4ae96d6fa)
 
-    
+Step 6: Observe Effects in Wiresharck and Ping Activity
+
     Back in the Windows 10 VM, observe Wireshark and ping activity to the Ubuntu VM. 
-        ICMP packets should be dropped.
+    ICMP packets should be dropped.
+
+![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/91c97e52-3b9d-4f82-8e3b-722773628863)
+
+Step 7: Re-enable ICMP Traffic
+
     Enable the "Inbound ICMP" rule in the NSG for the Ubuntu VM.
     Back in the Windows 10 VM, observe Wireshark and ping activity again. 
-        ICMP packets should now be received successfully.
+    ICMP packets should now be received successfully.
 
-![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/fb004662-2cff-4f53-97a7-a6f86b2abdc0)
+![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/117e4304-7f38-4973-a86f-87a4f5069c9c)
+
+![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/d598f4f8-c78d-48ba-8348-ce3f84fb047f)
+
+Step 8: Stop the Ping Activity
 
     Press Ctrl+C in the Command Prompt or PowerShell to stop the continuous ping.
+
+![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/143aec8c-2936-4ad1-91c3-09ae8ae3fedc)
 
 Analysis and Observations:
 
@@ -129,6 +145,8 @@ Step 1: Filter for SSH Traffic Only in Wireshark
     In the Wireshark capture window, enter ssh in the display filter box and press Enter.
     This will filter and display only SSH traffic.
 
+![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/718ecab2-696e-46b4-aea1-4ae57314078d)
+
 Step 2: SSH into Ubuntu VM from Windows 10 VM
 
     In the Azure Portal, go to your Ubuntu VM's overview.
@@ -140,20 +158,29 @@ Step 2: SSH into Ubuntu VM from Windows 10 VM
     Enter your Ubuntu VM's password when prompted.
     Once connected, you should see the username and hostname of Ubuntu VM.
 
-Observe SSH Traffic in Wireshark:
+![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/c4264637-63e0-493d-97d7-cf224f97ad76)
+
+Step 3: Observe SSH Traffic in Wireshark and Exit SSH Session
 
     In the Wireshark capture window, observe the SSH traffic as you interact with the Ubuntu VM over SSH.
+    Once connected via SSH, type Linux commands (e.g., pwd, ls, etc.) into the SSH session on the Windows 10 VM.
+    Observe the output of these commands within the SSH connection.
     You should see SSH packets (e.g., SSH handshake, data transfer) in the Wireshark capture.
     To exit the SSH connection, type exit and press Enter in the Command Prompt.
 
-![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/02c84757-2d6e-403d-8433-1e9c01fd60aa)
+![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/0d019b8b-8925-49d7-a61f-cd3df541a37c)
     
 <h3>Task 4: How to capture and analyze DHCP traffic using Wireshark steps:</h3>
 
 Step 1: Filter for DHCP Traffic Only in Wireshark
 
     In the Wireshark capture window, enter dhcp in the display filter box and press Enter.
-    This will filter and display only DHCP traffic.
+    This will filter and display only DHCP- related packets (including DHCP discover,offer, request, acknowledge) in the Wireshark capture.
+
+![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/013c0b4d-8f4c-4d7a-94bc-187206928b0c)
+
+Step 2: Attempt to Renew IP Address on Windows 10 VM
+
     Launch Command Prompt or PowerShell with administrative privileges.
     In the Command Prompt or PowerShell, execute the following command to renew the IP address from DHCP:
       
@@ -161,6 +188,7 @@ Step 1: Filter for DHCP Traffic Only in Wireshark
 
     This command requests a new IP address lease from the DHCP server.
 
+ 
     Switch back to the Wireshark capture window.
     You should see DHCP traffic related to the IP address renewal process captured in Wireshark.
     Look for DHCP Discover, Offer, Request, and Acknowledge messages exchanged between the 
