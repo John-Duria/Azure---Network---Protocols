@@ -175,7 +175,8 @@ Step 3: Observe SSH Traffic in Wireshark and Exit SSH Session
 Step 1: Filter for DHCP Traffic Only in Wireshark
 
     In the Wireshark capture window, enter dhcp in the display filter box and press Enter.
-    This will filter and display only DHCP- related packets (including DHCP discover,offer, request, acknowledge) in the Wireshark capture.
+    This will filter and display only DHCP- related packets (including DHCP discover,offer, request, acknowledge) 
+    in the Wireshark capture.
 
 ![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/013c0b4d-8f4c-4d7a-94bc-187206928b0c)
 
@@ -188,19 +189,20 @@ Step 2: Attempt to Renew IP Address on Windows 10 VM
 
     This command requests a new IP address lease from the DHCP server.
 
- 
+ Step 3: Observe DHCP traffic in Wireshark
+    
     Switch back to the Wireshark capture window.
     You should see DHCP traffic related to the IP address renewal process captured in Wireshark.
     Look for DHCP Discover, Offer, Request, and Acknowledge messages exchanged between the 
     Windows 10 VM and the DHCP server.
+
+![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/2441186a-d239-4338-a447-1fc48e240100)
 
 Analysis and Observations:
 
     DHCP Request: The Windows 10 VM sends a DHCP Request to request the offered IP address.
     DHCP Acknowledge: The DHCP server sends a DHCP Acknowledge message to confirm the 
     IP address lease renewal.
-
-![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/10e6af74-106c-4bb9-a086-0296036cc8de)
 
 <h3>Task 5: How to capture and analyze DNS (Domain Name System) traffic using Wireshark steps:</h3>
 
@@ -209,19 +211,27 @@ Step 1: Filter for DNS Traffic Only in Wireshark
     In the Wireshark capture window, enter dns in the display filter box and press Enter.
     This will filter and display only DNS traffic.
 
+![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/aefe9f57-3e5f-487e-a5af-e3a1d6c75ee5)
+
 Step 2: Use nslookup to Resolve DNS Queries
 
     Open Command Prompt on Windows 10 VM:
     Launch Command Prompt with administrative privileges.
-    In the Command Prompt, execute the following commands to resolve the IP addresses of google.com
+    In the Command Prompt, execute the following commands to resolve the IP addresses of google.com and disney.com
+        
+        To query the IP address of google.com using nslookup, run the following command:
+        nslookup google.com
 
-    nslookup google.com
+        Similarly, query the IP address of disney.com using nslookup:
+        nslookup disney.com
 
     nslookup is a command-line tool used to query DNS servers and obtain DNS records, 
     such as IP addresses associated with domain names.
     Switch back to the Wireshark capture window.
     You should see DNS query and response packets related to the nslookup commands captured in Wireshark.
     Look for DNS queries for google.com as well as the corresponding DNS responses containing IP addresses.
+
+![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/ba650b00-42a3-41ff-a804-2978834f82ab)
 
 Analysis and Observations:
 
@@ -230,7 +240,7 @@ Analysis and Observations:
     DNS Response: DNS servers respond with DNS response packets containing IP addresses 
     associated with google.com.
 
-![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/df4e2827-fb6a-4095-a7c2-98b449afae47)
+![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/d0a0cb84-1f31-43e1-b0be-801a807b9c69)
 
 <h3>Task 6: How to capture and analyze Remote Desktop Protocol (RDP) traffic using Wireshark steps:</h3>
 
@@ -239,7 +249,7 @@ Step 1: Filter for RDP Traffic (TCP Port 3389) in Wireshark
     In the Wireshark capture window, enter tcp.port == 3389 in the display filter box and press Enter.
     This will filter and display only TCP traffic on port 3389, which is used by RDP.
 
-Step 18: Observe Continuous RDP Traffic and Analysis
+Step 2: Observe Continuous RDP Traffic and Analysis
 
     Notice that when filtering for RDP traffic (tcp.port == 3389), you will likely observe continuous
     packets being transmitted, even when no specific user activity is occurring within the RDP session.
@@ -266,4 +276,5 @@ Analysis and Observations:
     user activities (e.g., HTTP requests in web browsing), RDP traffic is persistent and reflects the 
     ongoing nature of remote desktop sessions.
 
-![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/7f459042-c224-4b1c-8c80-21ae1adb830e)
+![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/e1dc0a83-04f7-45b1-ae5e-abef4d370632)
+
