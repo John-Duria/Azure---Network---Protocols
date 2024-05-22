@@ -270,8 +270,8 @@ Step 2: Observe Continuous RDP Traffic and Analysis
 
 Analysis and Observations:
 
-    Continuous Stream of Data: RDP traffic appears as a constant stream of data due to the real-time nature 
-    of remote desktop interaction.
+    Continuous Stream of Data: RDP traffic appears as a constant stream of data due to the real-time
+    nature of remote desktop interaction.
     Protocol Behavior: RDP protocol is optimized to provide a responsive and interactive remote desktop 
     experience, leading to continuous traffic flow between the client and server.
     Difference from Activity-based Traffic: Unlike other protocols that show traffic only during specific 
