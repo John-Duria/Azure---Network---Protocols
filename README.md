@@ -163,7 +163,8 @@ Step 2: SSH into Ubuntu VM from Windows 10 VM
 Step 3: Observe SSH Traffic in Wireshark and Exit SSH Session
 
     In the Wireshark capture window, observe the SSH traffic as you interact with the Ubuntu VM over SSH.
-    Once connected via SSH, type Linux commands (e.g., pwd, ls, etc.) into the SSH session on the Windows 10 VM.
+    Once connected via SSH, type Linux commands (e.g., pwd, ls, etc.) into the SSH session on the 
+    Windows 10 VM.
     Observe the output of these commands within the SSH connection.
     You should see SSH packets (e.g., SSH handshake, data transfer) in the Wireshark capture.
     To exit the SSH connection, type exit and press Enter in the Command Prompt.
@@ -175,8 +176,8 @@ Step 3: Observe SSH Traffic in Wireshark and Exit SSH Session
 Step 1: Filter for DHCP Traffic Only in Wireshark
 
     In the Wireshark capture window, enter dhcp in the display filter box and press Enter.
-    This will filter and display only DHCP- related packets (including DHCP discover,offer, request, acknowledge) 
-    in the Wireshark capture.
+    This will filter and display only DHCP- related packets (including DHCP discover,offer, request, 
+    acknowledge) in the Wireshark capture.
 
 ![image](https://github.com/John-Duria/Azure---Network---Protocols/assets/168502429/013c0b4d-8f4c-4d7a-94bc-187206928b0c)
 
@@ -217,7 +218,8 @@ Step 2: Use nslookup to Resolve DNS Queries
 
     Open Command Prompt on Windows 10 VM:
     Launch Command Prompt with administrative privileges.
-    In the Command Prompt, execute the following commands to resolve the IP addresses of google.com and disney.com
+    In the Command Prompt, execute the following commands to resolve the IP addresses of google.com and 
+    disney.com
         
         To query the IP address of google.com using nslookup, run the following command:
         nslookup google.com
